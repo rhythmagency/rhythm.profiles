@@ -12,7 +12,7 @@ var keystone = require('keystone');
 keystone.init({
 
 	'name': 'Rhythm Profiles',
-	'brand': 'Rhythm Profiles',
+	'brand': 'Rhythm',
 
 	'less': 'public',
 	'static': 'public',
@@ -54,7 +54,9 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'users': 'users'
+	'users': 'users',
+    'profiles': 'profiles',
+    'skills': 'skills'
 });
 
 // Start Keystone to connect to your database and initialise the web server
