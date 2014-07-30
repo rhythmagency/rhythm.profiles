@@ -4,9 +4,10 @@ var keystone = require('keystone'),
 var Skill = new keystone.List('Skill');
 
 Skill.add({
-    name: { type: Types.Text, required: true, initial:true, index: false },
+    name: { type: Types.Text, required: true, initial:true, index: true },
+    description: { type: Types.Html, required: false, initial:true, index: false },
 	website: { type: Types.Url, required: false, initial: true, index: false }
 });
 
-Skill.defaultColumns = 'name, website';
+Skill.defaultColumns = 'name, description, website';
 Skill.register();
