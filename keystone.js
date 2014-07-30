@@ -12,7 +12,7 @@ var keystone = require('keystone');
 keystone.init({
 
 	'name': 'Rhythm Profiles',
-	'brand': 'Rhythm',
+	'brand': 'Rhythm Profiles',
 
 	'less': 'public',
 	'static': 'public',

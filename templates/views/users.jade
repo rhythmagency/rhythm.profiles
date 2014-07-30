@@ -1,0 +1,27 @@
+extends ../layouts/default
+block content
+    .container: .jumbotron
+        img(src='/images/logo.svg', width='60')
+        h2 Rhythm Profiles
+        if users.length
+            .row
+                each user, i in users
+                    .col-sm-4.col-xs-6
+                        .user-image
+                            if user.photo.exists
+                                img(src=user._.photo.limit(100,100), alt=user.name.full + ' profile photo')
+                            else
+                                img(id='user-'+user.id)
+                                script.
+                                    $(function(){
+                                        var hash = '!{user.id}';
+                                        var data = new Identicon(hash, 100).toString();
+                                        $('#user-!{user.id}').attr('src', 'data:image/png;base64,'+data);
+                                    });
+
+                        h3= user.name.full
+                        .bio= user.bio
+
+        else
+            .jumbotron.text-center
+                .lead.text-muted There are no users.
