@@ -53,11 +53,16 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 
-keystone.set('nav', {
-	'users': 'users',
-    'profiles': 'profiles',
-    'skills': 'skills'
+var fs = require('fs');
+var path = require('path');
+var modelFiles = fs.readdirSync('models');
+var navObj = {};
+modelFiles.forEach(function(element, index, array){
+    var name = path.basename(element, path.extname(element)).toLowerCase()+'s';
+    navObj[name] = name;
 });
+
+keystone.set('nav', navObj);
 
 // Start Keystone to connect to your database and initialise the web server
 
