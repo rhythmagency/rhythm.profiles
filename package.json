@@ -1,24 +1,19 @@
 {
-    "name": "rhythm.profiles",
-    "description": "Production Staff Profiles ",
-    "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/rhythmagency/rhythm.profiles"
-    },
-    "author": "CJ Hanson",
-    "license": "MIT",
-    "readmeFilename": "README.md",
-    "scripts": {
-        "start": "node ./bin/www"
-    },
-    "dependencies": {
-        "express": "~4.2.0",
-        "static-favicon": "~1.0.0",
-        "morgan": "~1.0.0",
-        "cookie-parser": "~1.0.1",
-        "body-parser": "~1.0.0",
-        "debug": "~0.7.4",
-        "jade": "~1.3.0"
-    }
+  "name": "rhythm-profiles",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "keystone": "~0.2.25",
+    "async": "~0.9.0",
+    "underscore": "~1.6.0",
+    "dotenv": "0.4.0"
+  },
+  "engines": {
+    "node": ">=0.10.22",
+    "npm": ">=1.3.14"
+  },
+  "scripts": {
+    "start": "node keystone.js"
+  },
+  "main": "keystone.js"
 }
