@@ -1,7 +1,0 @@
-{
-    "PORT": 3000,
-    "NODE_ENV": "development",
-    "DEBUG": "",
-    "HTTP_AUTH_USERNAME": "rhythm",
-    "HTTP_AUTH_PASSWORD": "Rhythm1!"
-}
