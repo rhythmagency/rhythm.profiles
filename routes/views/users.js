@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 	// item in the header navigation.
 	locals.section = 'users';
 
-    view.query('users', keystone.list('User').model.find().sort('name'));
+    view.query('users', keystone.list('User').model.find().sort('name').populate('skills'));
 
 	// Render the view
 	view.render('users');
