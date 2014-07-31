@@ -11,13 +11,7 @@ block content
                             if user.photo.exists
                                 img(src=user._.photo.limit(100,100), alt=user.name.full + ' profile photo')
                             else
-                                img(id='user-'+user.id)
-                                script.
-                                    $(function(){
-                                        var hash = '!{user.id}';
-                                        var data = new Identicon(hash, 100).toString();
-                                        $('#user-!{user.id}').attr('src', 'data:image/png;base64,'+data);
-                                    });
+                                img(src='//www.gravatar.com/avatar/#{user.emailHash}?s=100&d=retro')
 
                         a(href='/users/'+user.id)
                             h3= user.name.full

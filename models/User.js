@@ -28,6 +28,10 @@ User.schema.virtual('canAccessKeystone').get(function() {
 	return this.isAdmin;
 });
 
+User.schema.virtual('emailHash').get(function () {
+    var MD5 = require('MD5');
+    return MD5(this.email.trim().toLowerCase());
+});
 
 /**
  * Registration
