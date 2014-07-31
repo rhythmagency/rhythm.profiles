@@ -10,7 +10,7 @@ block content
                     - var pointLevel = parseFloat(1.0)
                     if user.skills.length
                         each skill, i in user.skills
-                            - points = parseFloat(points) + parseFloat(skill.skillLevel)
+                            - points = parseFloat(points) + parseFloat(skill.level)
                         - pointLevel = parseInt(parseFloat(points) / parseFloat(user.skills.length))
                     .col-md-4.col-sm-6.col-xs-12
                         .well.user-profile
@@ -34,7 +34,7 @@ block content
                             if user.skills.length
                                 ul.skill-list
                                     each skill, i in user.skills
-                                        li(class='skill skill-level-#{skill.skillLevel}')= skill.baseName
+                                        li(class='skill skill-level-#{parseInt(skill.level)}')= skill.baseName
 
         else
             .jumbotron.text-center

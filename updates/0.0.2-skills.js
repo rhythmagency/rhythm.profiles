@@ -31,6 +31,8 @@ skillBaseNames.forEach(function(element, index, array){
         var name = element+' - L'+i;
         skills.push({
             'name': name,
+            'baseName': element,
+            'level': i,
             'description': '',
             'website': ''
         });
