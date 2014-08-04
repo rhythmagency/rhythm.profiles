@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/user-profile-block
 
 block content
     .container: .jumbotron
@@ -16,25 +17,4 @@ block content
                 h3 Profiles
                 if users.length
                     each user, i in users
-                        .well.user-profile
-                            .row
-                                .col-xs-6
-                                    a(href='/users/'+user.id).user-image
-                                        if user.photo.exists
-                                            img(src=user._.photo.limit(100,100), alt=user.name.full + ' profile photo')
-                                        else
-                                            img(src='//www.gravatar.com/avatar/#{user.emailHash}?s=100&d=retro')
-
-                                .col-xs-6
-                                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.points
-
-                            .user-profile-name
-                                a(href='/users/'+user.id)
-                                    h3= user.name.full
-
-                            h4.user-profile-bio= user.bio
-
-                            if user.skills.length
-                                ul.skill-list
-                                    each skill, i in user.skills
-                                        li(class='skill skill-level-#{parseInt(skill.level)}')= skill.baseName
+                        +user-profile-block(user)
