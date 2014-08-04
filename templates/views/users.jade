@@ -6,12 +6,6 @@ block content
         if users.length
             .row
                 each user, i in users
-                    - var points = parseFloat(0)
-                    - var pointLevel = parseFloat(1.0)
-                    if user.skills.length
-                        each skill, i in user.skills
-                            - points = parseFloat(points) + parseFloat(skill.level)
-                        - pointLevel = parseInt(parseFloat(points) / parseFloat(user.skills.length))
                     .col-md-4.col-sm-6.col-xs-12
                         .well.user-profile
                             .row
@@ -23,7 +17,7 @@ block content
                                             img(src='//www.gravatar.com/avatar/#{user.emailHash}?s=100&d=retro')
 
                                 .col-xs-6
-                                    div(class='user-points skill-level-#{pointLevel}')=points
+                                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.points
 
                             .user-profile-name
                                 a(href='/users/'+user.id)

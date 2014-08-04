@@ -5,9 +5,16 @@ block content
         img(src='/images/logo.svg', width='160')
         h1 Rhythm Profiles
 
-
-        h3
-        if skillBaseNames.length
-            ul
-                each skillBaseName, i in skillBaseNames
-                    li= skillBaseName
+        .row
+            .col-sm-6
+                h3 Skills
+                if skillBaseNames.length
+                    ul
+                        each skillBaseName, i in skillBaseNames
+                            li= skillBaseName
+            .col-sm-6
+                h3 Profiles
+                if users.length
+                    ul
+                        each user, i in users
+                            li= user.name.full

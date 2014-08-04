@@ -33,6 +33,32 @@ User.schema.virtual('emailHash').get(function () {
     return MD5(this.email.trim().toLowerCase());
 });
 
+User.schema.virtual('points').get(function(){
+    var points = 0;
+    if(this.skills.length){
+        this.skills.forEach(function(element, i, array){
+            if(typeof(element) === 'object') {
+                points += parseInt(element.level);
+            }
+        });
+    }
+
+    return points;
+});
+
+User.schema.virtual('averageSkillLevel').get(function(){
+    if(this.points > 0 && this.skills.length){
+        var average = Math.round(parseFloat(this.points) / parseFloat(this.skills.length));
+        if(average < 1){
+            return 1;
+        }
+
+        return average;
+    }
+
+    return 1;
+});
+
 /**
  * Registration
  */

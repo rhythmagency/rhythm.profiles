@@ -9,6 +9,8 @@ exports = module.exports = function(req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
+    view.query('users', keystone.list('User').model.find().sort('name.last').populate({path: 'skills', options: { sort: {'level':'desc'} }}));
+
     locals.skillBaseNames = [];
 
     view.on('init', function(next) {
