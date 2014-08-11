@@ -13,13 +13,15 @@ exports = module.exports = function(req, res) {
     locals.skillBaseNames = [];
 
     view.on('init', function(next) {
-        keystone.list('User').model.find().sort('name.last').populate({path: 'skills', options: { sort: '-level' }}).exec(function(err, users){
+        keystone.list('User').model.find().sort('name.last').populate({path: 'skills', options: { sort: {'level':'desc'} }}).exec(function(err, users){
             if(err || !users.length){
                 return next(err);
             }
 
             locals.users = users;
         }).then(function(){
+            console.log('Found '+locals.users.length+' users');
+
             keystone.list('Skill').model.find().distinct('baseName').exec(function(err, results){
                 if (err || !results || !results.length) {
                     return next(err);
@@ -36,8 +38,6 @@ exports = module.exports = function(req, res) {
                 results.sort(function (a, b) {
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
-
-                console.log(results);
 
                 locals.skillsWithUsers = {};
 
