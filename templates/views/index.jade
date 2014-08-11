@@ -6,11 +6,18 @@ block content
         img(src='/images/logo.svg', width='160')
         h1 Rhythm Profiles
 
-        h3 Skills
-
         if skillBaseNames.length
-            each skillBaseName, i in skillBaseNames
-                h4= skillBaseName
+            h3 Skills
 
-                each user in skillsWithUsers[skillBaseName]
-                    +user-profile-block(user)
+            #users-accordion
+                each skillBaseName, i in skillBaseNames
+                    h3= skillBaseName
+
+                    .user-profile-blocks
+                        each user in skillsWithUsers[skillBaseName]
+                            +user-profile-block(user)
+
+            script.
+              jQuery(function() {
+                  jQuery("#users-accordion").accordion({ heightStyle: "content" });
+              });
