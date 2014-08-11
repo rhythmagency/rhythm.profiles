@@ -47,6 +47,8 @@ exports = module.exports = function(req, res) {
                             if(skill.baseName == skillBaseName){
                                 console.log(user.name.full+' has skill '+skillBaseName);
                                 locals.skillsWithUsers[skillBaseName].push(user);
+                            }else{
+                                console.log(user.name.full+' DOES NOT have skill '+skillBaseName);
                             }
                         });
                     });
