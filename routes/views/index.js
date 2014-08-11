@@ -31,6 +31,8 @@ exports = module.exports = function(req, res) {
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
 
+                console.log(results);
+
                 locals.skillsWithUsers = {};
 
                 results.forEach(function(skillBaseName, idx, arr){
