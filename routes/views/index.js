@@ -25,14 +25,6 @@ exports = module.exports = function(req, res) {
                     return next(err);
                 }
 
-                var validResults = [];
-                results.forEach(function(el, idx, arr){
-                    if(el)
-                        validResults.push(el);
-                });
-
-                results = validResults;
-
                 results.sort(function (a, b) {
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
@@ -45,10 +37,7 @@ exports = module.exports = function(req, res) {
                     locals.users.forEach(function(user, idx2, arr2){
                         user.skills.forEach(function(skill, idx3, arr3){
                             if(skill.baseName == skillBaseName){
-                                console.log(user.name.full+' has skill '+skillBaseName);
                                 locals.skillsWithUsers[skillBaseName].push(user);
-                            }else{
-                                console.log(user.name.full+' DOES NOT have skill "'+skillBaseName+'" != "'+skill.baseName+'"');
                             }
                         });
                     });
