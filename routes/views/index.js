@@ -25,9 +25,9 @@ exports = module.exports = function(req, res) {
                     return next(err);
                 }
 
-                console.log('results are valid?');
-
                 results.sort(function (a, b) {
+                    if(!a || !b)
+                        return -1;
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
 
