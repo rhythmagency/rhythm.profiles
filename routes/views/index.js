@@ -20,8 +20,6 @@ exports = module.exports = function(req, res) {
 
             locals.users = users;
         }).then(function(){
-            console.log('Found '+locals.users.length+' users');
-
             keystone.list('Skill').model.find().distinct('baseName').exec(function(err, results){
                 if (err || !results || !results.length) {
                     return next(err);
@@ -47,6 +45,7 @@ exports = module.exports = function(req, res) {
                     locals.users.forEach(function(user, idx2, arr2){
                         user.skills.forEach(function(skill, idx3, arr3){
                             if(skill.baseName == skillBaseName){
+                                console.log(user.name.full+' has skill '+skillBaseName);
                                 locals.skillsWithUsers[skillBaseName].push(user);
                             }
                         });
