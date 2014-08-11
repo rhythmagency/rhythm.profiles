@@ -25,9 +25,15 @@ exports = module.exports = function(req, res) {
                     return next(err);
                 }
 
+                var validResults = [];
+                results.forEach(function(el, idx, arr){
+                    if(el)
+                        validResults.push(el);
+                });
+
+                results = validResults;
+
                 results.sort(function (a, b) {
-                    if(!a || !b)
-                        return -1;
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
 
