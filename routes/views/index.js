@@ -21,7 +21,7 @@ exports = module.exports = function(req, res) {
             locals.users = users;
         }).then(function(){
             keystone.list('Skill').model.find().distinct('baseName').exec(function(err, results){
-                if (err || !results.length) {
+                if (err || !results || !results.length) {
                     return next(err);
                 }
 
