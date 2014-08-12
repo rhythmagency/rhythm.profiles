@@ -11,7 +11,7 @@ mixin user-profile-block(user, includeLinks, includeBio)
                             img(src='//www.gravatar.com/avatar/#{user.emailHash}?s=100&d=retro')
 
                 .col-xs-6
-                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.points
+                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.experience
 
             .user-profile-name
                 a(href='/users/'+user.id)

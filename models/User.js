@@ -37,24 +37,25 @@ User.schema.virtual('emailHash').get(function () {
     return MD5(this.email.trim().toLowerCase());
 });
 
-User.schema.virtual('points').get(function(){
+User.schema.virtual('experience').get(function(){
     var points = 0;
+    var exp = 3;
     if(this.skills.length){
         this.skills.forEach(function(element, i, array){
             if(typeof(element) === 'object') {
                 var levelI = parseInt(element.level);
-                points += levelI * levelI;
+                points += Math.pow(levelI, exp);
             }
         });
     }
 
     if(points)
-        points = Math.round(Math.sqrt(points));
+        points = Math.round(Math.pow(points, 1.0/exp));
 
     return points;
 });
 
-User.schema.virtual('averageSkillLevel').get(function(){
+User.schema.virtual('points').get(function(){
     var points = 0;
     if(this.skills.length){
         this.skills.forEach(function(element, i, array){
@@ -65,13 +66,15 @@ User.schema.virtual('averageSkillLevel').get(function(){
         });
     }
 
+    return points;
+});
+
+User.schema.virtual('averageSkillLevel').get(function(){
+    var points = this.points;
+
     if(points > 0 && this.skills.length){
         var average = Math.round(parseFloat(points) / parseFloat(this.skills.length));
-        if(average < 1){
-            return 1;
-        }
-
-        return average;
+        return Math.ceil(average);
     }
 
     return 1;
