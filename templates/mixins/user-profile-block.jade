@@ -14,7 +14,7 @@ mixin user-profile-block(user)
                     div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.points
 
             .user-profile-name
-                a(href='/users/'+user.id)
+                a(href='/user/'+user.id)
                     h3= user.name.full
 
             h4.user-profile-bio= user.bio

@@ -3,19 +3,20 @@ include ../mixins/user-profile-block
 
 block content
     .container: .jumbotron
-        img(src='/images/logo.svg', width='160')
+        a(href='/')
+            img(src='/images/logo.svg', width='120')
+
         h1 Rhythm Profiles
 
         if skillBaseNames.length
-            h3 Skills
-
             #users-accordion
                 each skillBaseName, i in skillBaseNames
                     h3= skillBaseName
 
-                    .user-profile-blocks
+                    .row.user-profile-blocks
                         each user in skillsWithUsers[skillBaseName]
-                            +user-profile-block(user)
+                            .col-md-4.col-sm-6.col-xs-12
+                                +user-profile-block(user)
 
             script.
               jQuery(function() {

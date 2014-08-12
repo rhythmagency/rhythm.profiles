@@ -6,8 +6,10 @@ block title
 
 block content
     .container: .jumbotron
-        img(src='/images/logo.svg', width='60')
-        h2 Rhythm Profiles
+        a(href='/')
+            img(src='/images/logo.svg', width='120')
+        br
+        br
         if users.length
             .row
                 each user, i in users

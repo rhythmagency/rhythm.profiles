@@ -1,0 +1,19 @@
+extends ../layouts/default
+include ../mixins/user-profile-block
+block title
+    title User
+block content
+    .container: .jumbotron
+        a(href='/')
+            img(src='/images/logo.svg', width='120')
+        br
+        br
+        .user-profile-full
+            if users.length
+                .row
+                    each user, i in users
+                        .col-sm-6.col-xs-12
+                            +user-profile-block(user)
+            else
+                .jumbotron.text-center
+                    .lead.text-muted There are no users.
