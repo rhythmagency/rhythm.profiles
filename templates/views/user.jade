@@ -1,13 +1,13 @@
 extends ../layouts/default
+include ../mixins/header-image
 include ../mixins/user-profile-block
+
 block title
     title User
 block content
     .container: .jumbotron
-        a(href='/')
-            img(src='/images/logo.svg', width='120')
-        br
-        br
+        +header-image()
+
         .user-profile-full
             if users.length
                 .row

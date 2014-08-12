@@ -1,12 +1,10 @@
 extends ../layouts/default
+include ../mixins/header-image
 include ../mixins/user-profile-block
 
 block content
     .container: .jumbotron
-        a(href='/')
-            img(src='/images/logo.svg', width='120')
-
-        h1 Rhythm Profiles
+        +header-image()
 
         if skillBaseNames.length
             #users-accordion
