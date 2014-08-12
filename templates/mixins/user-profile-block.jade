@@ -1,10 +1,10 @@
-mixin user-profile-block(user)
+mixin user-profile-block(user, includeBio, includeLinks)
     user.name.full
     if user
         .well.user-profile
             .row
                 .col-xs-6
-                    a(href='/user/'+user.id).user-image
+                    a(href='/users/'+user.id).user-image
                         if user.photo.exists
                             img(src=user._.photo.limit(100,100), alt=user.name.full + ' profile photo')
                         else
@@ -14,12 +14,41 @@ mixin user-profile-block(user)
                     div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.points
 
             .user-profile-name
-                a(href='/user/'+user.id)
+                a(href='/users/'+user.id)
                     h3= user.name.full
 
-            h4.user-profile-bio= user.bio
+            h4.user-profile-title= user.title
+
+            if includeBio
+                h5.user-profile-bio= user.bio
 
             if user.skills.length
                 ul.skill-list
                     each skill, i in user.skills
                         li(class='skill skill-level-#{parseInt(skill.level)}')= skill.baseName
+
+            if includeLinks
+                .user-profile-social-links
+                    if user.stackoverflow
+                        a(href=user.stackoverflow, title='Stack Overflow')
+                                img(src='/images/social-icons/stackoverflow.svg', width=20, height=20)
+
+                    if user.bitbucket
+                        a(href=user.bitbucket, title='Bitbucket')
+                                img(src='/images/social-icons/bitbucket.svg', width=20, height=20)
+
+                    if user.github
+                        a(href=user.github, title='GitHub')
+                                img(src='/images/social-icons/github.svg', width=20, height=20)
+
+                    if user.twitter
+                        a(href='http://twitter.com/'+user.twitter, title='Twitter')
+                                img(src='/images/social-icons/03-twitter.svg', width=20, height=20)
+
+                    if user.linkedIn
+                        a(href=user.linkedIn, title='LinkedIn')
+                                img(src='/images/social-icons/linkedin-2013.svg', width=20, height=20)
+
+                    if user.facebook
+                        a(href=user.facebook, title='Facebook')
+                                img(src='/images/social-icons/06-facebook.svg', width=20, height=20)

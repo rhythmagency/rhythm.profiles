@@ -14,8 +14,12 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true },
 
     photo: { type: Types.CloudinaryImage, required: false, index: false },
+    title: { type: Types.Text, required: false, initial: true, index: false },
 	bio: { type: Types.Html, required: false, initial: true, index: false },
     skills: { type: Types.Relationship, ref: 'Skill', initial: true, required: false, many: true },
+    stackoverflow: { type: Types.Url, required: false, initial: true, index: false },
+    bitbucket: { type: Types.Url, required: false, initial: true, index: false },
+    github: { type: Types.Url, required: false, initial: true, index: false },
     twitter: { type: Types.Url, required: false, initial: true, index: false },
     linkedIn: { type: Types.Url, required: false, initial: true, index: false },
     facebook: { type: Types.Url, required: false, initial: true, index: false }
@@ -63,5 +67,5 @@ User.schema.virtual('averageSkillLevel').get(function(){
  * Registration
  */
 
-User.defaultColumns = 'name, email, skills, isAdmin';
+User.defaultColumns = 'name, title, email, skills, isAdmin';
 User.register();
