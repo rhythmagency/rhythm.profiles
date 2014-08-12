@@ -4,7 +4,7 @@ mixin user-profile-block(user)
         .well.user-profile
             .row
                 .col-xs-6
-                    a(href='/users/'+user.id).user-image
+                    a(href='/user/'+user.id).user-image
                         if user.photo.exists
                             img(src=user._.photo.limit(100,100), alt=user.name.full + ' profile photo')
                         else
