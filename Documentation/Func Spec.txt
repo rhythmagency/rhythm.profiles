@@ -1,0 +1,36 @@
+User Profile
+x - Name
+x - email
+x - password
+
+x - Photo
+x - Linked in
+x - Twitter
+x - FB
+x - Stack Overflow
+x - Bio
+
+
+Skill
+x - Name
+x - Website
+
+Expertise
+x - Skill
+x - Rating
+
+
+Projects (link with jira in future)
+ - Current users assigned
+ - Skills required
+ - Hours estimated
+ - Hours tracked
+
+Points (Evaluates expertise, performance, longevity)
+x - One point per skill level
+ - One point per hour on estimate
+ - Two points per hour under estimate (after task is complete)
+ - 
+
+x Layout Skill with users under each ordered by level, then points when levels match
+
