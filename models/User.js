@@ -55,8 +55,18 @@ User.schema.virtual('points').get(function(){
 });
 
 User.schema.virtual('averageSkillLevel').get(function(){
-    if(this.points > 0 && this.skills.length){
-        var average = Math.round(parseFloat(this.points) / parseFloat(this.skills.length));
+    var points = 0;
+    if(this.skills.length){
+        this.skills.forEach(function(element, i, array){
+            if(typeof(element) === 'object') {
+                var levelI = parseInt(element.level);
+                points += levelI;
+            }
+        });
+    }
+
+    if(points > 0 && this.skills.length){
+        var average = Math.round(parseFloat(points) / parseFloat(this.skills.length));
         if(average < 1){
             return 1;
         }
