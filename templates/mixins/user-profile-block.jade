@@ -1,4 +1,4 @@
-mixin user-profile-block(user, includeBio, includeLinks)
+mixin user-profile-block(user, includeLinks, includeBio)
     user.name.full
     if user
         .well.user-profile
@@ -18,14 +18,6 @@ mixin user-profile-block(user, includeBio, includeLinks)
                     h3= user.name.full
 
             h4.user-profile-title= user.title
-
-            if includeBio
-                h5.user-profile-bio= user.bio
-
-            if user.skills.length
-                ul.skill-list
-                    each skill, i in user.skills
-                        li(class='skill skill-level-#{parseInt(skill.level)}')= skill.baseName
 
             if includeLinks
                 .user-profile-social-links
@@ -52,3 +44,11 @@ mixin user-profile-block(user, includeBio, includeLinks)
                     if user.facebook
                         a(href=user.facebook, title='Facebook')
                                 img(src='/images/social-icons/06-facebook.svg', width=20, height=20)
+
+            if includeBio
+                h5.user-profile-bio= user.bio
+
+            if user.skills.length
+                ul.skill-list
+                    each skill, i in user.skills
+                        li(class='skill skill-level-#{parseInt(skill.level)}')= skill.baseName
