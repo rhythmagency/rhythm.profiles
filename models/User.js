@@ -50,7 +50,7 @@ User.schema.virtual('experience').get(function(){
     }
 
     if(points)
-        points = Math.round(Math.pow(points, 1.0/exp));
+        points = Math.round(Math.pow(points, 1.0/(exp-1)));
 
     return points;
 });
