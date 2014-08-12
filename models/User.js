@@ -42,10 +42,14 @@ User.schema.virtual('points').get(function(){
     if(this.skills.length){
         this.skills.forEach(function(element, i, array){
             if(typeof(element) === 'object') {
-                points += parseInt(element.level);
+                var levelI = parseInt(element.level);
+                points += levelI * levelI;
             }
         });
     }
+
+    if(points)
+        points = Math.round(Math.sqrt(points));
 
     return points;
 });
