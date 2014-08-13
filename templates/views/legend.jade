@@ -1,0 +1,46 @@
+extends ../layouts/default
+include ../mixins/header-image
+
+block content
+    .container: .jumbotron
+        +header-image()
+
+        h3 Skill Levels
+
+        div
+            |A developer is assigned a skill level from&nbsp;
+            strong.skill-level-1 1
+            |&nbsp;to&nbsp;
+            strong.skill-level-10 10
+            |&nbsp;for each of their skills such as '
+            strong.skill-level-1 C++
+            |'&nbsp;or&nbsp;'
+            strong.skill-level-10 Node.js
+            |'
+
+        br
+
+        div Skill levels are color coded as follows:
+        ol
+            li.skill-level-1 Green
+            li.skill-level-2 Light Blue
+            li.skill-level-3 Blue
+            li.skill-level-4 Purple
+            li.skill-level-5 Violet
+            li.skill-level-6 Magenta
+            li.skill-level-7 Fuchsia
+            li.skill-level-8 Red
+            li.skill-level-9 Bronze
+            li.skill-level-10 Gold
+
+        h3 Experience Points
+
+        div Points are awarded for skills and accomplishments.
+
+        br
+
+        div Higher level skills are more valuable than lower level skills. Points are calculated by taking the square root of the sum of the cubes of each skill level.
+
+        br
+
+        div The points color represents the average skill level. The average skill level is simply the sum of the skill levels divided by the number of skills.

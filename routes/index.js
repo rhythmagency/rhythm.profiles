@@ -37,6 +37,7 @@ exports = module.exports = function(app) {
 	
 	// Views
 	app.get('/', routes.views.index);
+    app.get('/legend', routes.views.legend);
     app.get('/users', routes.views.users);
     app.get('/users/:id', routes.views.user);
 	

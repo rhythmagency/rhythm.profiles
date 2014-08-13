@@ -11,7 +11,8 @@ mixin user-profile-block(user, includeLinks, includeBio)
                             img(src='//www.gravatar.com/avatar/#{user.emailHash}?s=100&d=retro')
 
                 .col-xs-6
-                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')= user.experience
+                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')
+                        a(href='/legend')= user.experience
 
             .user-profile-name
                 a(href='/users/'+user.id)
@@ -22,27 +23,27 @@ mixin user-profile-block(user, includeLinks, includeBio)
             if includeLinks
                 .user-profile-social-links
                     if user.stackoverflow
-                        a(href=user.stackoverflow, title='Stack Overflow')
+                        a(href=user.stackoverflow, title='Stack Overflow', target='_blank')
                                 img(src='/images/social-icons/stackoverflow.svg', width=20, height=20)
 
                     if user.bitbucket
-                        a(href=user.bitbucket, title='Bitbucket')
+                        a(href=user.bitbucket, title='Bitbucket', target='_blank')
                                 img(src='/images/social-icons/bitbucket.svg', width=20, height=20)
 
                     if user.github
-                        a(href=user.github, title='GitHub')
+                        a(href=user.github, title='GitHub', target='_blank')
                                 img(src='/images/social-icons/github.svg', width=20, height=20)
 
                     if user.twitter
-                        a(href='http://twitter.com/'+user.twitter, title='Twitter')
+                        a(href='http://twitter.com/'+user.twitter, title='Twitter', target='_blank')
                                 img(src='/images/social-icons/03-twitter.svg', width=20, height=20)
 
                     if user.linkedIn
-                        a(href=user.linkedIn, title='LinkedIn')
+                        a(href=user.linkedIn, title='LinkedIn', target='_blank')
                                 img(src='/images/social-icons/linkedin-2013.svg', width=20, height=20)
 
                     if user.facebook
-                        a(href=user.facebook, title='Facebook')
+                        a(href=user.facebook, title='Facebook', target='_blank')
                                 img(src='/images/social-icons/06-facebook.svg', width=20, height=20)
 
             if includeBio

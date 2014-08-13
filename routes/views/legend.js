@@ -7,10 +7,12 @@ exports = module.exports = function(req, res) {
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'users';
+	locals.section = 'legend';
 
-    view.query('users', keystone.list('User').model.find({_id:req.params.id}).sort('name.last').populate({path: 'skills', options: { sort: {'level':'desc'} }}));
+    view.on('init', function(next) {
+        next();
+    });
 
 	// Render the view
-	view.render('user');
+	view.render('legend');
 };
