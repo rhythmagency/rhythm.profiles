@@ -1,3 +1,8 @@
+Homepage list all users. Filter based on skills (default or, maybe have checkbox to make it AND)
+ - Group by skill, order by level
+
+ - Profile block show skill level as progress bar or stars or something visual instead of just color coded
+
 User Profile
 x - Name
 x - email
@@ -9,6 +14,7 @@ x - Twitter
 x - FB
 x - Stack Overflow
 x - Bio
+ - Interests
 
 
 Skill
@@ -21,6 +27,8 @@ x - Rating
 
 
 Projects (link with jira in future)
+ - Budget (small, med, large, supersize)
+ - Estimated dev hours
  - Current users assigned
  - Skills required
  - Hours estimated
