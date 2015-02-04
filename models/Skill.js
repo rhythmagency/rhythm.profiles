@@ -46,8 +46,17 @@ Skill.schema.pre('save', function (next) {
             }
         });
     }else{
-        //Just insert this record now
-        next();
+        //check if skill already exists
+        Skill.model.find({'level': self.level, 'baseName':{$regex: new RegExp('^'+self.baseName+'$', 'i')}}, function(err, docs) {
+            if (err) {
+                next(err);
+            } else if (docs.length) {
+                next(new Error('That skill/level already exists.'));
+            } else {
+                //Just insert this record now
+                next();
+            }
+        });
     }
 });
 
