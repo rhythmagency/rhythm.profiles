@@ -20,7 +20,66 @@ exports = module.exports = function(req, res) {
 
             locals.users = users;
         }).then(function(){
-            keystone.list('Skill').model.find().distinct('baseName').exec(function(err, results){
+            //Limit homepage list of skills to those relevant to a Project Manager looking to match a developer with a type of project at Rhythm
+            var visibleSkills = [];
+            /*
+                //Added in 0.0.2
+                'C',
+                'C++',
+                'Obj-C',
+                '.NET C#',
+                'Java',
+                'iOS',
+                'Android',
+                'PHP',
+                'HTML',
+                'JS',
+                'Node.js',
+                'CSS',
+                'Linux Server',
+                'Windows Server',
+                'SQL'
+
+                //Added in 0.0.3
+                'RegEx',
+                'Nginx',
+                'Apache',
+                'AWS',
+                'VB.NET',
+                'Angular.js',
+                'jQuery',
+                'Docker',
+                'SASS',
+                'LESS',
+                'Ruby',
+                'Python',
+                'Go',
+                'Umbraco',
+                'Keystone.js',
+                'Elasticsearch',
+                'WordPress',
+                'Drupal',
+                'Documentation',
+                'Communication'
+             */
+            visibleSkills.push({'baseName':'C'});
+            visibleSkills.push({'baseName':'C++'});
+            visibleSkills.push({'baseName':'Obj-C'});
+            visibleSkills.push({'baseName':'.NET C#'});
+            visibleSkills.push({'baseName':'Java'});
+            visibleSkills.push({'baseName':'iOS'});
+            visibleSkills.push({'baseName':'Android'});
+            visibleSkills.push({'baseName':'PHP'});
+            visibleSkills.push({'baseName':'HTML'});
+            visibleSkills.push({'baseName':'CSS'});
+            visibleSkills.push({'baseName':'Windows Server'});
+            visibleSkills.push({'baseName':'Linux Server'});
+            visibleSkills.push({'baseName':'Umbraco'});
+            visibleSkills.push({'baseName':'AWS'});
+            visibleSkills.push({'baseName':'WordPress'});
+            visibleSkills.push({'baseName':'Elasticsearch'});
+
+            keystone.list('Skill').model.find({$or:visibleSkills}).distinct('baseName').exec(function(err, results){
                 if (err || !results || !results.length) {
                     return next(err);
                 }
