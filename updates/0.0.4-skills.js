@@ -24,27 +24,27 @@ var skillBaseNames = [
 //    'Windows Server',
 //    'SQL'
 
-    //Added in 0.0.3
-    'RegEx',
-    'Nginx',
-    'Apache',
-    'AWS',
-    'VB.NET',
-    'Angular.js',
-    'jQuery',
-    'Docker',
-    'SASS',
-    'LESS',
-    'Ruby',
-    'Python',
-    'Go',
-    'Umbraco',
-    'Keystone.js',
-    'Elasticsearch',
-    'WordPress',
-    'Drupal',
-    'Documentation',
-    'Communication',
+//    //Added in 0.0.3
+//    'RegEx',
+//    'Nginx',
+//    'Apache',
+//    'AWS',
+//    'VB.NET',
+//    'Angular.js',
+//    'jQuery',
+//    'Docker',
+//    'SASS',
+//    'LESS',
+//    'Ruby',
+//    'Python',
+//    'Go',
+//    'Umbraco',
+//    'Keystone.js',
+//    'Elasticsearch',
+//    'WordPress',
+//    'Drupal',
+//    'Documentation',
+//    'Communication',
 
     //Added in 0.0.4
     'CakePHP'
@@ -58,9 +58,7 @@ skillBaseNames.forEach(function(element, index, array){
         skills.push({
             'name': name,
             'baseName': element,
-            'level': i,
-            'description': '',
-            'website': ''
+            'level': i
         });
     }
 });

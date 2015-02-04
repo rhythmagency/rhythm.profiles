@@ -6,12 +6,12 @@
     "MD5": "^1.2.1",
     "async": "~0.9.0",
     "dotenv": "^0.4.0",
-    "keystone": "~0.2.25",
-    "underscore": "~1.6.0"
+    "keystone": "~0.2.42",
+    "underscore": "~1.7.0"
   },
   "engines": {
     "node": "0.10.x",
-    "npm": "1.3.x"
+    "npm": "2.1.x"
   },
   "scripts": {
     "start": "node keystone.js"
