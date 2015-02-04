@@ -61,6 +61,9 @@ exports = module.exports = function(req, res) {
                 'Drupal',
                 'Documentation',
                 'Communication'
+
+                //Added in 0.0.4
+                'CakePHP'
              */
             visibleSkills.push({'baseName':'C'});
             visibleSkills.push({'baseName':'C++'});
@@ -78,6 +81,7 @@ exports = module.exports = function(req, res) {
             visibleSkills.push({'baseName':'AWS'});
             visibleSkills.push({'baseName':'WordPress'});
             visibleSkills.push({'baseName':'Elasticsearch'});
+            visibleSkills.push({'baseName':'CakePHP'});
 
             keystone.list('Skill').model.find({$or:visibleSkills}).distinct('baseName').exec(function(err, results){
                 if (err || !results || !results.length) {
