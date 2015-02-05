@@ -81,6 +81,49 @@ User.schema.virtual('averageSkillLevel').get(function(){
 });
 
 /**
+ * Validation
+ */
+
+User.schema.pre('save', function (next) {
+	var self = this;
+
+    //don't allow duplicate skills based on the baseName
+    if(self.skills.length){
+        keystone.list('Skill').model.find().exec(function(err, allSkills){
+            if(err){
+                next(err);
+            }else {
+                var allSkillsIndexedByID = {};
+                allSkills.forEach(function(el, idx, arr) {
+                    allSkillsIndexedByID[el.id] = el;
+                });
+
+                var isOK = true;
+                var duplicateSkillBaseName = '';
+                var skillsIndexedByBaseName = {};
+                self.skills.forEach(function(el, idx, arr){
+                    var aSkill = allSkillsIndexedByID[el];
+                    if(!(aSkill.baseName in skillsIndexedByBaseName)){
+                        skillsIndexedByBaseName[aSkill.baseName] = 1;
+                    }else{
+                        isOK = false;
+                        duplicateSkillBaseName = aSkill.baseName;
+                    }
+                });
+
+                if(!isOK){
+                    next(new Error('You cannot have more than one skill level for the same skill. "'+duplicateSkillBaseName+'"'));
+                }else{
+                    next();
+                }
+            }
+        });
+    }else{
+        next();
+    }
+});
+
+/**
  * Registration
  */
 
