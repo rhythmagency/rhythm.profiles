@@ -1,4 +1,4 @@
-mixin user-profile-block(user, includeLinks, includeBio)
+mixin user-profile-block(user, skillLevel, skillLevelColorBasis, includeLinks, includeBio)
     user.name.full
     if user
         .well.user-profile
@@ -11,8 +11,8 @@ mixin user-profile-block(user, includeLinks, includeBio)
                             img(src='//www.gravatar.com/avatar/#{user.emailHash}?s=100&d=retro')
 
                 .col-xs-6
-                    div(class='user-points skill-level-#{parseInt(user.averageSkillLevel)}')
-                        a(href='/legend')= user.experience
+                    div(class='user-points skill-level-#{parseInt(skillLevelColorBasis)}')
+                        a(href='/legend')= skillLevel
 
             .user-profile-name
                 a(href='/users/'+user.id)

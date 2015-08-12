@@ -14,7 +14,7 @@ block content
                     .row.user-profile-blocks
                         each user in skillsWithUsers[skillBaseName]
                             .col-md-4.col-sm-6.col-xs-12
-                                +user-profile-block(user)
+                                +user-profile-block(user, user.skillsByBaseName[skillBaseName].level, user.skillsByBaseName[skillBaseName].level)
 
             script.
               jQuery(function() {

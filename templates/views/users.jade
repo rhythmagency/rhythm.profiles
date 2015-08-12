@@ -13,7 +13,7 @@ block content
             .row
                 each user, i in users
                     .col-md-4.col-sm-6.col-xs-12
-                        +user-profile-block(user)
+                        +user-profile-block(user, user.experience, user.averageSkillLevel)
 
         else
             .jumbotron.text-center

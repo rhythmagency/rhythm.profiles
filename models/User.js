@@ -80,6 +80,14 @@ User.schema.virtual('averageSkillLevel').get(function(){
     return 1;
 });
 
+User.schema.virtual('skillsByBaseName').get(function(){
+    var skillsByBaseName = {};
+    this.skills.forEach(function(skill, idx, arr){
+        skillsByBaseName[skill.baseName] = skill;
+    });
+    return skillsByBaseName;
+});
+
 /**
  * Validation
  */

@@ -13,7 +13,7 @@ block content
                 .row
                     each user, i in users
                         .col-sm-6.col-xs-12
-                            +user-profile-block(user, true, true)
+                            +user-profile-block(user, user.experience, user.averageSkillLevel, true, true)
             else
                 .jumbotron.text-center
                     .lead.text-muted There are no users.
